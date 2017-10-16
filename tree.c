@@ -46,4 +46,7 @@ void tree_balance(tree_root_t *tree)
   
 }
 
+void node_new(element_t, tree_node_t *tree)
+{
 
+}
