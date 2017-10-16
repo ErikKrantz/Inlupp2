@@ -1,18 +1,10 @@
 #include "list.h"
 #include "utils.h"
-#include "tree.h"
+//#include "tree.h"
 #include <stdlib.h>
 #include "lager.h"
 #include <stdio.h>
-
-struct element
-{
-  void *p;
-  int   i;
-  // uint  u;
-  float f;
-};
-
+#include "common.h"
 
 struct link
 {
@@ -22,12 +14,24 @@ struct link
 
 struct list
 {
-  cmp_t *cmp_f;
+  element_comp_fun comp_f;
+  element_copy_fun copy_f;
+  element_free_fun free_f;
   link_t *first;
   link_t *last;
 };
 
+list_t *list_new(element_copy_fun copy, element_free_fun free, element_comp_fun compare)
+{
+  list_t *new_list = calloc(1, sizeof(list_t));
+  if (new_list)
+    {
+      //  new_list->comp_f = compare(copy);
+    }
+  return new_list;
+}
 
+/*
 list_t *list_new(cmp_t *cmp)
 {
   list_t *result = calloc(1,sizeof(list_t));
@@ -37,19 +41,57 @@ list_t *list_new(cmp_t *cmp)
     }
   return result;
 }
+*/
 
-
-void list_insert(list_t *list, element_t elem)
+void list_insert(list_t *list, int index, elem_t elem)
 {
-  tree_node_t **c = &(list->first);
-  while (*c && list->cmp_f((*c)->elem, elem))
-    {
-      c = &((*c)->next);
-    }
-  *c = node_new(elem, *c);
+  return;
 }
 
+void list_append(list_t *list, elem_t elem)
+{
+  return;
+}
 
+void list_remove(list_t *list, int index, bool delete)
+{
+  return;
+}
+
+bool list_get(list_t *list, int index, elem_t *result)
+{
+  return true;
+}
+
+bool list_first(list_t *list, elem_t *result)
+{
+  return true;
+}
+
+bool list_last(list_t *list, elem_t *result)
+{
+  return true;
+}
+
+int list_length(list_t *list)
+{
+  return 0;
+}
+
+void list_delete(list_t *list, bool delete)
+{
+  return;
+}
+
+bool list_apply(list_t *list, elem_apply_fun fun, void *data)
+{
+  return true;
+}
+
+int list_contains(list_t *list, elem_t elem)
+{
+  return 0;
+}
 
 int main()
 {
