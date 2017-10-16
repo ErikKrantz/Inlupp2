@@ -7,6 +7,12 @@
 typedef elem_t tree_key_t;
 typedef element_free_fun key_free_fun;
 
+typedef void* T;
+
+typedef struct node node_t;
+
+
+
 /// Define struct tree in your .c file not here! (why?)
 typedef struct tree tree_t;
 
