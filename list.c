@@ -41,8 +41,8 @@ list_t *list_new(cmp_t *cmp)
 
 void list_insert(list_t *list, element_t elem)
 {
-  node_t **c = &(l->first);
-  while (*c && l->cmp_f((*c)->elem, elem)
+  tree_node_t **c = &(list->first);
+  while (*c && list->cmp_f((*c)->elem, elem))
     {
       c = &((*c)->next);
     }
