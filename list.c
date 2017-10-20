@@ -1,10 +1,11 @@
 #include "list.h"
 #include "utils.h"
-//#include "tree.h"
+#include "tree.h"
 #include <stdlib.h>
 #include "lager.h"
 #include <stdio.h>
 #include "common.h"
+
 
 struct link
 {
@@ -14,7 +15,7 @@ struct link
 
 struct list
 {
-  element_comp_fun comp_f;
+  element_comp_fun compare_f;
   element_copy_fun copy_f;
   element_free_fun free_f;
   link_t *first;
@@ -26,7 +27,7 @@ list_t *list_new(element_copy_fun copy, element_free_fun free, element_comp_fun 
   list_t *new_list = calloc(1, sizeof(list_t));
   if (new_list)
     {
-      //  new_list->comp_f = compare(copy);
+      new_list->compare_f = compare;
     }
   return new_list;
 }
@@ -42,11 +43,17 @@ list_t *list_new(cmp_t *cmp)
   return result;
 }
 */
-
+/*
 void list_insert(list_t *list, int index, elem_t elem)
 {
-  return;
+  node_t **c = &(l->first);
+  while (*c && list->compare_f((*c)->elem, elem)
+    {
+      c = &((*c)->next);
+    }
+  // *c = node_new(elem, *c);
 }
+*/
 
 void list_append(list_t *list, elem_t elem)
 {

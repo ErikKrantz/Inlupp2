@@ -16,8 +16,12 @@ typedef void(*list_action)(L element);
 /// Define struct list in your .c file not here! (why?)
 typedef struct list list_t;
 
-typedef struct element element_t;
+/*
 
-typedef int(*cmp_t)(element_t, element_t);
+typedef struct element elem_t;
+
+typedef int(*cmp_t)(elem_t, elem_t);
+
+*/
 
 #endif
